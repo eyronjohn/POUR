@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg"
+    android:gravity="center"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="40dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/temp_logo"
+                android:contentDescription="App logo"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="POUR"
+                android:textSize="50sp"
+                android:letterSpacing="0.2"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/mustard"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="safe space to pour out your emotions and reflect on your mental health journey."
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textColor="@color/mustard"
+                />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:textColor="@color/white"
+            android:textColorHint="@color/mustard"
+            android:inputType="text"
+            android:layout_marginBottom="20dp"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/mustard"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPassword"
+            android:layout_marginBottom="20dp"
+            />
+
+        <EditText
+            android:id="@+id/confirmPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/mustard"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPassword"
+            android:layout_marginBottom="20dp"
+            />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:textSize="21dp"
+            android:padding="10dp"
+            android:backgroundTint="@color/yellow"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have an account?"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/mustard"
+                />
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Sign In"-->
+            <!--                android:textSize="18sp"-->
+            <!--                android:fontFamily="sans-serif-light"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                />-->
+            <Button
+                android:id="@+id/signInBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@color/mustard"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:paddingVertical="0dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="2dp"/> <!-- optional small gap -->
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -57,12 +57,14 @@
                     android:shadowRadius="1.5"
                     android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
-                <TextView
+                <EditText
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/game_card_bg"
+                    android:hint="Enter your fist name"
+                    android:inputType="text"
                     android:padding="12dp"
                     android:textColor="@color/darker_mustard"
                     android:textColorHint="@color/darker_mustard"
@@ -116,52 +118,52 @@
                     android:textColor="@color/darker_mustard"
                     android:textColorHint="@color/darker_mustard" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Date of Birth"
-                    android:textSize="14dp"
-                    android:textColor="@color/mustard"
-                    android:shadowColor="#80000000"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="1.5"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_marginBottom="6dp"/>
-                <TextView
-                    android:id="@+id/pickDateButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Select Date"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/game_card_bg"
-                    android:clickable="true"
-                    android:focusable="true"/>
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:text="Date of Birth"-->
+<!--                    android:textSize="14dp"-->
+<!--                    android:textColor="@color/mustard"-->
+<!--                    android:shadowColor="#80000000"-->
+<!--                    android:shadowDx="1"-->
+<!--                    android:shadowDy="1"-->
+<!--                    android:shadowRadius="1.5"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:layout_marginBottom="6dp"/>-->
+<!--                <TextView-->
+<!--                    android:id="@+id/pickDateButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Select Date"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="16dp"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:background="@drawable/game_card_bg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true"/>-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Gender"
-                    android:textSize="14dp"
-                    android:textColor="@color/mustard"
-                    android:shadowColor="#80000000"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="1.5"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_marginBottom="6dp"/>
-                <Spinner
-                    android:id="@+id/gender_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/game_card_bg"
-                    android:padding="12dp"
-                    android:textColor="@color/darker_mustard"
-                    android:textColorHint="@color/darker_mustard"
-                    />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:text="Gender"-->
+<!--                    android:textSize="14dp"-->
+<!--                    android:textColor="@color/mustard"-->
+<!--                    android:shadowColor="#80000000"-->
+<!--                    android:shadowDx="1"-->
+<!--                    android:shadowDy="1"-->
+<!--                    android:shadowRadius="1.5"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:layout_marginBottom="6dp"/>-->
+<!--                <Spinner-->
+<!--                    android:id="@+id/gender_spinner"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:background="@drawable/game_card_bg"-->
+<!--                    android:padding="12dp"-->
+<!--                    android:textColor="@color/darker_mustard"-->
+<!--                    android:textColorHint="@color/darker_mustard"-->
+<!--                    />-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -185,27 +187,7 @@
                     android:padding="34dp"
                     android:textColor="@color/darker_mustard"
                     android:textColorHint="@color/darker_mustard" />
-                <Button
-                    android:id="@+id/saveBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Apply Changes"
-                    android:textSize="18dp"
-                    android:padding="10dp"
-                    android:backgroundTint="@color/yellow"
-                    android:fontFamily="sans-serif-light"
-                    />
-                <Button
-                    android:id="@+id/redirectBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Go to Profile Tester"
-                    android:textSize="18dp"
-                    android:padding="10dp"
-                    android:backgroundTint="@color/yellow"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_marginBottom="64dp"
-                    />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

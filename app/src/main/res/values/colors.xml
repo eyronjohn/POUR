@@ -6,5 +6,6 @@
     <color name="violet">#47485E</color>
     <color name="olive">#898C24</color>
     <color name="mustard">#C4BA5E</color>
+    <color name="darker_mustard">#b7ad58</color>
     <color name="tempBG">#ffe4e4</color>
 </resources>

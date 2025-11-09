@@ -55,8 +55,8 @@
             android:hint="Username"
             android:padding="12dp"
             android:background="@drawable/edit_text_bg"
-            android:textColor="@color/white"
-            android:textColorHint="@color/mustard"
+            android:textColor="@color/darker_mustard"
+            android:textColorHint="@color/darker_mustard"
             android:inputType="text"
             android:layout_marginBottom="20dp"
             />
@@ -67,8 +67,8 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:padding="12dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/mustard"
+            android:textColor="@color/darker_mustard"
+            android:textColorHint="@color/darker_mustard"
             android:background="@drawable/edit_text_bg"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp"
@@ -97,7 +97,10 @@
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/mustard"
-                />
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="1.5" />
             <!--            <TextView-->
             <!--                android:layout_width="wrap_content"-->
             <!--                android:layout_height="wrap_content"-->
@@ -121,7 +124,11 @@
                 android:minWidth="0dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_marginTop="2dp"/> <!-- optional small gap -->
+                android:layout_marginTop="2dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="1.5" /><!-- optional small gap -->
 
 
         </LinearLayout>

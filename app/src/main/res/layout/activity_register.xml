@@ -10,132 +10,280 @@
     android:gravity="center"
     tools:context=".RegisterActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="40dp"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="40dp"
-            >
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:src="@drawable/temp_logo"
-                android:contentDescription="App logo"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="POUR"
-                android:textSize="50sp"
-                android:letterSpacing="0.2"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/mustard"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="safe space to pour out your emotions and reflect on your mental health journey."
-                android:textSize="18sp"
-                android:textAlignment="center"
-                android:textColor="@color/mustard"
-                />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:padding="12dp"
-            android:background="@drawable/edit_text_bg"
-            android:textColor="@color/white"
-            android:textColorHint="@color/mustard"
-            android:inputType="text"
-            android:layout_marginBottom="20dp"
-            />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/mustard"
-            android:background="@drawable/edit_text_bg"
-            android:inputType="textPassword"
-            android:layout_marginBottom="20dp"
-            />
-
-        <EditText
-            android:id="@+id/confirmPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/mustard"
-            android:background="@drawable/edit_text_bg"
-            android:inputType="textPassword"
-            android:layout_marginBottom="20dp"
-            />
-
-        <Button
-            android:id="@+id/registerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REGISTER"
-            android:textSize="21dp"
-            android:padding="10dp"
-            android:backgroundTint="@color/yellow"
-            />
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Already have an account?"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/mustard"
-                />
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="Sign In"-->
-            <!--                android:textSize="18sp"-->
-            <!--                android:fontFamily="sans-serif-light"-->
-            <!--                android:textColor="@color/white"-->
-            <!--                />-->
-            <Button
-                android:id="@+id/signInBtn"
+            android:layout_margin="40dp"
+            android:orientation="vertical">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@android:color/transparent"
+                android:orientation="vertical"
+                android:paddingBottom="40dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:contentDescription="App logo"
+                    android:src="@drawable/temp_logo" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.2"
+                    android:text="POUR"
+                    android:textAlignment="center"
+                    android:textColor="@color/mustard"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="safe space to pour out your emotions and reflect on your mental health journey."
+                    android:textAlignment="center"
+                    android:textColor="@color/mustard"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="First Name"
                 android:textColor="@color/mustard"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif-light"
-                android:paddingVertical="0dp"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <EditText
+                android:id="@+id/fName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Enter your fist name"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Last Name"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <EditText
+                android:id="@+id/lName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Enter your last name"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Date of Birth"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <TextView
+                android:id="@+id/pickDateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Date"
+                android:gravity="center"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/date_bg"
                 android:clickable="true"
-                android:focusable="true"
-                android:layout_marginTop="2dp"/> <!-- optional small gap -->
+                android:focusable="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Gender"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <Spinner
+                android:id="@+id/gender_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Email"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Enter your fist name"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Username"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Username"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Password"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Confirm Password"
+                android:textColor="@color/mustard"
+                android:textSize="18dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+            <EditText
+                android:id="@+id/confirmPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textColor="@color/darker_mustard"
+                android:textColorHint="@color/darker_mustard" />
+
+            <Button
+                android:id="@+id/registerBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/yellow"
+                android:padding="10dp"
+                android:text="REGISTER"
+                android:textSize="21dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Already have an account?"
+                    android:textColor="@color/mustard"
+                    android:textSize="18sp"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="1.5" />
+                <Button
+                    android:id="@+id/signInBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-light"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="0dp"
+                    android:text="Sign In"
+                    android:textColor="@color/mustard"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="64dp"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="1.5" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

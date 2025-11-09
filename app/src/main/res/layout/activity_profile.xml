@@ -10,139 +10,182 @@
     android:background="@drawable/gradient_bg"
     tools:context=".ProfileActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="About You"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/mustard"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:src="@drawable/default_profile"
-            android:contentDescription="Description of the image"/>
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:layout_margin="40dp"
+            android:orientation="vertical"
             >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About You"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/mustard"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/default_profile"
+                android:contentDescription="Default profile img"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
 
-        </LinearLayout>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Username"
-                    android:textSize="14dp"
                     android:textColor="@color/mustard"
+                    android:textSize="14dp"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
-                <TextView
+                <EditText
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/game_card_bg"
-                    android:layout_marginBottom="12dp"
-                    />
+                    android:hint="Enter your fist name"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="@color/darker_mustard"
+                    android:textColorHint="@color/darker_mustard" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="First Name"
                     android:textSize="14dp"
                     android:textColor="@color/mustard"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
-                <TextView
+                <EditText
+                    android:id="@+id/fName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/game_card_bg"
-                    android:layout_marginBottom="12dp"
-                    />
+                    android:hint="Enter your fist name"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="@color/darker_mustard"
+                    android:textColorHint="@color/darker_mustard" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Last Name"
                     android:textSize="14dp"
                     android:textColor="@color/mustard"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
-                <TextView
+                <EditText
+                    android:id="@+id/lName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/game_card_bg"
-                    android:layout_marginBottom="12dp"
-                    />
+                    android:hint="Enter your last name"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="@color/darker_mustard"
+                    android:textColorHint="@color/darker_mustard" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Date of Birth"
                     android:textSize="14dp"
                     android:textColor="@color/mustard"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
                 <TextView
+                    android:id="@+id/pickDateButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Select Date"
+                    android:gravity="center"
                     android:padding="16dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@android:color/black"
                     android:background="@drawable/game_card_bg"
-                    android:layout_marginBottom="12dp"
-                    />
+                    android:clickable="true"
+                    android:focusable="true"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Gender"
                     android:textSize="14dp"
                     android:textColor="@color/mustard"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
-                <TextView
+                <Spinner
+                    android:id="@+id/gender_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/game_card_bg"
-                    android:layout_marginBottom="12dp"
+                    android:padding="12dp"
+                    android:textColor="@color/darker_mustard"
+                    android:textColorHint="@color/darker_mustard"
                     />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Bio"
                     android:textSize="14dp"
                     android:textColor="@color/mustard"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginBottom="6dp"/>
-                <TextView
+                <EditText
+                    android:id="@+id/bio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/game_card_bg"
-                    android:layout_marginBottom="12dp"
-                    />
-
+                    android:inputType="text"
+                    android:padding="34dp"
+                    android:textColor="@color/darker_mustard"
+                    android:textColorHint="@color/darker_mustard" />
                 <Button
                     android:id="@+id/registerBtn"
                     android:layout_width="match_parent"
@@ -151,9 +194,11 @@
                     android:textSize="18dp"
                     android:padding="10dp"
                     android:backgroundTint="@color/yellow"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_marginBottom="64dp"
                     />
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

@@ -109,9 +109,91 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordET.getText().toString().trim();
         String confirmPass = confirmPassET.getText().toString().trim();
 
-        if (fName.isEmpty() || lName.isEmpty() || email.isEmpty() || username.isEmpty() ||
-                password.isEmpty() || confirmPass.isEmpty() || selectedGender.isEmpty() || selectedDOB.isEmpty()) {
-            Toast.makeText(c, "Please fill all fields.", Toast.LENGTH_LONG).show();
+        // Empty Fields Checker
+        if (fName.isEmpty()) {
+            Toast.makeText(c, "First name is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (lName.isEmpty()) {
+            Toast.makeText(c, "Last name is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (email.isEmpty()) {
+            Toast.makeText(c, "Email is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (username.isEmpty()) {
+            Toast.makeText(c, "Username is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(c, "Password is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (confirmPass.isEmpty()) {
+            Toast.makeText(c, "Confirm password is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (selectedDOB.isEmpty()) {
+            Toast.makeText(c, "Date of birth is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //Validations
+        if (fName.length() < 2) {
+            Toast.makeText(c, "First name must be at least 2 characters long.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!fName.matches("[a-zA-Z]+")) {
+            Toast.makeText(c, "First name must contain only letters.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (lName.length() < 2) {
+            Toast.makeText(c, "Last name must be at least 2 characters long.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!lName.matches("[a-zA-Z]+")) {
+            Toast.makeText(c, "Last name must contain only letters.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (username.length() < 4) {
+            Toast.makeText(c, "Username must be at least 4 characters long.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!username.matches("[a-zA-Z0-9_]+")) {
+            Toast.makeText(c, "Username can only contain letters, numbers, or underscores.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (selectedDOB.isEmpty() || !isValidDOB(selectedDOB)) {
+            Toast.makeText(c, "Please select a valid date of birth (not in the future).", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(c, "Please enter a valid email address.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            Toast.makeText(c, "Password is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.length() < 8) {
+            Toast.makeText(c, "Password must be at least 8 characters long.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!password.matches(".*[A-Za-z].*")) {
+            Toast.makeText(c, "Password must contain at least one letter.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!password.matches(".*[0-9].*")) {
+            Toast.makeText(c, "Password must contain at least one number.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -155,17 +237,59 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void showDatePickerDialog() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
-                    selectedDOB = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                    pickDateButton.setText(selectedDOB);
-                    year = selectedYear;
-                    month = selectedMonth;
-                    day = selectedDayOfMonth;
+                    Calendar selectedDate = Calendar.getInstance();
+                    selectedDate.set(selectedYear, selectedMonth, selectedDayOfMonth, 0, 0, 0);
+
+                    Calendar today = Calendar.getInstance();
+                    today.set(Calendar.HOUR_OF_DAY, 0);
+                    today.set(Calendar.MINUTE, 0);
+                    today.set(Calendar.SECOND, 0);
+                    today.set(Calendar.MILLISECOND, 0);
+
+                    if (selectedDate.after(today)) {
+                        Toast.makeText(RegisterActivity.this, "Future dates are not allowed.", Toast.LENGTH_SHORT).show();
+                        selectedDOB = "";
+                        pickDateButton.setText("Select Date");
+                    } else {
+                        selectedDOB = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                        pickDateButton.setText(selectedDOB);
+                    }
                 },
                 year, month, day
         );
+
         datePickerDialog.show();
     }
+
+    private boolean isValidDOB(String dob) {
+        try {
+            String[] parts = dob.split("/");
+            int day = Integer.parseInt(parts[0]);
+            int month = Integer.parseInt(parts[1]) - 1;
+            int year = Integer.parseInt(parts[2]);
+
+            Calendar selected = Calendar.getInstance();
+            selected.set(year, month, day, 0, 0, 0);
+
+            Calendar today = Calendar.getInstance();
+            today.set(Calendar.HOUR_OF_DAY, 0);
+            today.set(Calendar.MINUTE, 0);
+            today.set(Calendar.SECOND, 0);
+            today.set(Calendar.MILLISECOND, 0);
+
+            return !selected.after(today);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 }

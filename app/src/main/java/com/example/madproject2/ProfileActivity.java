@@ -22,15 +22,13 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    Context c = this;
-    EditText fNameET, lNameET, genderET, bioET;
+    //Context c = this;
+    EditText fNameET, lNameET, bioET;
     TextView usernameTV, pickDateButton;
     Spinner genderSpinner;
     int year, month, day;
-    String selectedGender = "", selectedDOB = "";
-    String username = "";
-    Button saveBtn;
-    Button registerBtn, redirectBtn;
+    String username = "", selectedDOB = "";
+    Button saveBtn, registerBtn, redirectBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,19 +104,46 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void showDatePickerDialog() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
-                    selectedDOB = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                    pickDateButton.setText(selectedDOB);
-                    year = selectedYear;
-                    month = selectedMonth;
-                    day = selectedDayOfMonth;
+                    // Build selected date
+                    Calendar selectedDate = Calendar.getInstance();
+                    selectedDate.set(selectedYear, selectedMonth, selectedDayOfMonth, 0, 0, 0);
+
+                    // Get today's date (normalized)
+                    Calendar today = Calendar.getInstance();
+                    today.set(Calendar.HOUR_OF_DAY, 0);
+                    today.set(Calendar.MINUTE, 0);
+                    today.set(Calendar.SECOND, 0);
+                    today.set(Calendar.MILLISECOND, 0);
+
+                    // Compare
+                    if (selectedDate.after(today)) {
+                        Toast.makeText(ProfileActivity.this, "Future dates are not allowed.", Toast.LENGTH_SHORT).show();
+                        // Clear or keep the old DOB text (optional)
+                        selectedDOB = ""; // don’t save invalid date
+                        pickDateButton.setText("Select Date");
+                    } else {
+                        selectedDOB = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                        pickDateButton.setText(selectedDOB);
+                    }
                 },
                 year, month, day
         );
+
+        // ❌ Don’t disable future dates
+        // datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
         datePickerDialog.show();
     }
+
+
 
     private void updateProfile(){
         HashMap<String, String> userData = UserDatabase.getUser(username);

@@ -144,7 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(c, "First name must be at least 2 characters long.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (!fName.matches("[a-zA-Z]+")) {
+        if (!fName.matches("[a-zA-Z ]+")) {
             Toast.makeText(c, "First name must contain only letters.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -153,7 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(c, "Last name must be at least 2 characters long.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (!lName.matches("[a-zA-Z]+")) {
+        if (!lName.matches("[a-zA-Z ]+")) {
             Toast.makeText(c, "Last name must contain only letters.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -291,5 +291,4 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-
-}
+}//class

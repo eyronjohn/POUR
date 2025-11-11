@@ -22,13 +22,13 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    //Context c = this;
-    EditText fNameET, lNameET, bioET;
-    TextView usernameTV, pickDateButton;
-    Spinner genderSpinner;
-    int year, month, day;
-    String username = "", selectedDOB = "";
-    Button saveBtn, registerBtn, redirectBtn;
+    private Context c;
+    private EditText fNameET, lNameET, bioET;
+    private TextView usernameTV, pickDateButton;
+    private Spinner genderSpinner;
+    private int year, month, day;
+    private String username = "", selectedDOB = "";
+    private Button saveBtn, registerBtn, redirectBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
 
+        c = this;
         initialize();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -55,10 +56,10 @@ public class ProfileActivity extends AppCompatActivity {
         saveBtn = findViewById(R.id.saveBtn);
         redirectBtn = findViewById(R.id.redirectBtn);
 
-        final Calendar c = Calendar.getInstance();
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
+        final Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -96,7 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(v -> updateProfile());
 
         redirectBtn.setOnClickListener(v -> {
-            Intent intent1 = new Intent(ProfileActivity.this, ProfileTester.class);
+            Intent intent1 = new Intent(c, ProfileTester.class);
             intent1.putExtra("username", username);
             startActivity(intent1);
         });
@@ -112,22 +113,18 @@ public class ProfileActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
-                    // Build selected date
                     Calendar selectedDate = Calendar.getInstance();
                     selectedDate.set(selectedYear, selectedMonth, selectedDayOfMonth, 0, 0, 0);
 
-                    // Get today's date (normalized)
                     Calendar today = Calendar.getInstance();
                     today.set(Calendar.HOUR_OF_DAY, 0);
                     today.set(Calendar.MINUTE, 0);
                     today.set(Calendar.SECOND, 0);
                     today.set(Calendar.MILLISECOND, 0);
 
-                    // Compare
                     if (selectedDate.after(today)) {
-                        Toast.makeText(ProfileActivity.this, "Future dates are not allowed.", Toast.LENGTH_SHORT).show();
-                        // Clear or keep the old DOB text (optional)
-                        selectedDOB = ""; // don’t save invalid date
+                        Toast.makeText(this, "Future dates are not allowed.", Toast.LENGTH_SHORT).show();
+                        selectedDOB = "";
                         pickDateButton.setText("Select Date");
                     } else {
                         selectedDOB = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
@@ -136,34 +133,83 @@ public class ProfileActivity extends AppCompatActivity {
                 },
                 year, month, day
         );
-
-        // ❌ Don’t disable future dates
-        // datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-
         datePickerDialog.show();
     }
 
-
-
-    private void updateProfile(){
-        HashMap<String, String> userData = UserDatabase.getUser(username);
-
+    private void updateProfile() {
         String fName = fNameET.getText().toString().trim();
         String lName = lNameET.getText().toString().trim();
         String dob = pickDateButton.getText().toString().trim();
         String gender = genderSpinner.getSelectedItem().toString();
         String bio = bioET.getText().toString().trim();
 
+        // Empty Fields Checker
+        if (fName.isEmpty()) {
+            Toast.makeText(c, "First name is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (lName.isEmpty()) {
+            Toast.makeText(c, "Last name is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (dob.isEmpty()) {
+            Toast.makeText(c, "Date of birth is required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (fName.length() < 2) {
+            Toast.makeText(c, "First name must be at least 2 characters long.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!fName.matches("[a-zA-Z ]+")) { // note the space after Z
+            Toast.makeText(c, "First name must contain only letters and spaces.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (lName.length() < 2) {
+            Toast.makeText(c, "Last name must be at least 2 characters long.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!lName.matches("[a-zA-Z ]+")) {
+            Toast.makeText(c, "Last name must contain only letters.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!isValidDOB(dob)) {
+            Toast.makeText(c, "Please select a valid date of birth (not in the future).", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        HashMap<String, String> userData = UserDatabase.getUser(username);
         userData.put("firstName", fName);
         userData.put("lastName", lName);
         userData.put("dob", dob);
         userData.put("gender", gender);
         userData.put("bio", bio);
 
-        //getIntent().putExtra("firstName", fName);
-
-        Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
-        //Toast.makeText(this, "New Full Name: " + fNameET.getText().toString() + " " +  lNameET.getText().toString(),  Toast.LENGTH_SHORT).show();
+        Toast.makeText(c, "Profile updated successfully", Toast.LENGTH_SHORT).show();
     }
 
-}
+    private boolean isValidDOB(String dob) {
+        try {
+            String[] parts = dob.split("/");
+            int day = Integer.parseInt(parts[0]);
+            int month = Integer.parseInt(parts[1]) - 1;
+            int year = Integer.parseInt(parts[2]);
+
+            Calendar selected = Calendar.getInstance();
+            selected.set(year, month, day, 0, 0, 0);
+
+            Calendar today = Calendar.getInstance();
+            today.set(Calendar.HOUR_OF_DAY, 0);
+            today.set(Calendar.MINUTE, 0);
+            today.set(Calendar.SECOND, 0);
+            today.set(Calendar.MILLISECOND, 0);
+
+            return !selected.after(today);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+}//class

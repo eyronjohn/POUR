@@ -37,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView changePicBtn;
     //private ImageView profileImg;
     ShapeableImageView profileImage;
+    Bitmap tempProfileImage = null;
     final int REQUEST_CODE  = 1;
     final int REQUEST_CODE_CAM  = 2;
 
@@ -227,6 +228,10 @@ public class ProfileActivity extends AppCompatActivity {
         userData.put("gender", gender);
         userData.put("bio", bio);
 
+        if (tempProfileImage != null) {
+            userData    .put("profileImage", tempProfileImage);
+        }
+
         Toast.makeText(c, "Profile updated successfully", Toast.LENGTH_SHORT).show();
     }
 
@@ -261,10 +266,11 @@ public class ProfileActivity extends AppCompatActivity {
             //imgBit.setImageBitmap(imgBit);
             //profileImg.setImageBitmap(imgBit);
             profileImage.setImageBitmap(imgBit);
+            tempProfileImage = imgBit;
 
-            HashMap<String, Object> userData = UserDatabase.getUser(username);
-            userData.put("profileImage", imgBit);
-            Toast.makeText(this, "Profile picture updated successfully!", Toast.LENGTH_SHORT).show();
+            //HashMap<String, Object> userData = UserDatabase.getUser(username);
+            //userData.put("profileImage", imgBit);
+            //Toast.makeText(this, "Profile picture updated successfully!", Toast.LENGTH_SHORT).show();
         }
 
     }

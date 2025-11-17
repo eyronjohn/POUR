@@ -243,6 +243,7 @@
                     android:padding="10dp"
                     android:background="@drawable/button"
                     android:backgroundTint="@color/yellow"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/open_sauce_one_regular"
                     />
 <!--                <Button-->
@@ -275,6 +276,7 @@
                     android:shadowDx="2"
                     android:shadowDy="2"
                     android:shadowRadius="1.5"
+                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"/>
                     <!-- Add Change Profile Photo-->
                     <!-- Ian-->

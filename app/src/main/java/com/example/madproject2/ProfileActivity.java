@@ -86,11 +86,6 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
         userData = UserDatabase.getUser(username);
-//        String fName = (String) userData.get("firstName");
-//        String lName = (String) userData.get("lastName");
-//        String dob = (String) userData.get("dob");
-//        String gender = (String) userData.get("gender");
-//        String bio = (String) userData.get("bio");
 
         lName = (String) userData.get("username");
         fName = (String) userData.get("firstName");
@@ -98,12 +93,12 @@ public class ProfileActivity extends AppCompatActivity {
         gender = (String) userData.get("gender");
         dob = (String) userData.get("dob");
 
-        Toast.makeText(c, "Hello, " + fName + "!", Toast.LENGTH_SHORT).show();
-        //fName = intent.getStringExtra("fName");
-        //lName = intent.getStringExtra("lName");
-//        String dob = intent.getStringExtra("dob");
-//        String gender = intent.getStringExtra("gender");
-//        String bio = intent.getStringExtra("bio");
+        Bitmap savedImage = (Bitmap) userData.get("profileImage");
+        if (savedImage != null) {
+            profileImage.setImageBitmap(savedImage);
+        }
+
+        //Toast.makeText(c, "Hello, " + fName + "!", Toast.LENGTH_SHORT).show();
 
         if (username != null) usernameTV.setText(username);
         if (fName != null) fNameET.setText(fName);

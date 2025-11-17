@@ -1,6 +1,7 @@
 package com.example.madproject2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.HashMap;
 
@@ -22,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView tvSelectedMood, tvFullName;
     HashMap<String, Object> userData;
     String username, fName, lName;
+    ShapeableImageView profileImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +43,23 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initialize() {
         tvFullName = findViewById(R.id.tvFullName);
+        profileImage = findViewById(R.id.profileImage);
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
         userData = UserDatabase.getUser(username);
 
+        //load profileImage if changed
+        Bitmap savedImage = (Bitmap) userData.get("profileImage");
+        if (savedImage != null) {
+            profileImage.setImageBitmap(savedImage);
+        }
+
         fName = (String) userData.get("firstName");
         lName = (String) userData.get("lastName");
-
-        //fName = intent.getStringExtra("fName");
-        //lName = intent.getStringExtra("lName");
-        //set Full Name
         String fullName = fName + " " + lName;
         //Toast.makeText(HomeActivity.this, "Welcome back, " + fullName + "!", Toast.LENGTH_SHORT).show();
+
 
         tvFullName.setText(fullName);
 

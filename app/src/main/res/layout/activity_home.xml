@@ -73,13 +73,17 @@
                 </LinearLayout>
 
                 <!-- Profile Image -->
-                <ImageView
-                    android:id="@+id/ivProfile"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center_vertical"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profile" />
+                    android:src="@drawable/default_profile"
+                    app:strokeColor="#898C24"
+                    app:strokeWidth="6dp"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    app:shapeAppearanceOverlay="@style/CircularImage" />
             </LinearLayout>
 
             <View

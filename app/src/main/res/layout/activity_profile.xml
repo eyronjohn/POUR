@@ -70,6 +70,7 @@
                     />
                 <TextView
                     android:id="@+id/username"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -281,7 +282,7 @@
                     android:id="@+id/testerBtn1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Go to Home Tester"
+                    android:text=""
                     android:textSize="18sp"
                     android:textColor="@color/mustard"
                     android:background="@android:color/transparent"
@@ -303,7 +304,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Go to Choose Mood Tester"
+                    android:text=""
                     android:textSize="18sp"
                     android:textColor="@color/mustard"
                     android:background="@android:color/transparent"
@@ -318,7 +319,7 @@
                     android:shadowDx="2"
                     android:shadowDy="2"
                     android:shadowRadius="1.5"
-                    android:layout_marginBottom="64dp"/>
+                    />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

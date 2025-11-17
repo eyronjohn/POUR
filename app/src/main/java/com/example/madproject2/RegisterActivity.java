@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText usernameET, passwordET, confirmPassET, fNameET, lNameET, emailET;
     private Button registerBtn, signInBtn ;
     private Spinner genderSpinner;
-    private TextView pickDateButton;
+    private TextView pickDateButton, signInLink;
     private int year, month, day;
     private String selectedGender = "", selectedDOB = "";
     List<String> spinnerItems = new ArrayList<>();
@@ -67,6 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
         signInBtn = findViewById(R.id.signInBtn);
         genderSpinner = findViewById(R.id.gender_spinner);
         pickDateButton = findViewById(R.id.pickDateButton);
+        signInLink = findViewById(R.id.signInLink);
 
         spinnerItems.add("Male");
         spinnerItems.add("Female");
@@ -97,7 +98,8 @@ public class RegisterActivity extends AppCompatActivity {
         pickDateButton.setOnClickListener(v -> showDatePickerDialog());
 
         registerBtn.setOnClickListener(v -> registerUser());
-        signInBtn.setOnClickListener(v -> {
+
+        signInLink.setOnClickListener(v -> {
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
         });

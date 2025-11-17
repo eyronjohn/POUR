@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,7 +20,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private Context c;
     private EditText usernameET, passwordET;
-    private Button loginBtn, signUpBtn;
+    private TextView signUpLink;
+    private Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +43,11 @@ public class LoginActivity extends AppCompatActivity {
         usernameET = findViewById(R.id.username);
         passwordET = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
-        signUpBtn = findViewById(R.id.signUpBtn);
+        signUpLink = findViewById(R.id.signUpLink);
 
         loginBtn.setOnClickListener(v -> loginUser());
-        signUpBtn.setOnClickListener(v -> {
+
+        signUpLink.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });

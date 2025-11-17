@@ -24,20 +24,20 @@
             >
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:src="@drawable/temp_logo"
-                android:contentDescription="App logo"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="POUR"
-                android:textSize="50sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.2"
-                android:textAlignment="center"
-                android:textColor="@color/mustard"
-                android:fontFamily="@font/open_sauce_one_extrabold"
-                />
+                android:layout_height="220dp"
+                android:contentDescription="App logo"
+                android:src="@drawable/pourlogo" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="POUR"-->
+<!--                android:textSize="50sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:letterSpacing="0.2"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/mustard"-->
+<!--                android:fontFamily="@font/open_sauce_one_extrabold"-->
+<!--                />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -87,6 +87,7 @@
             android:padding="10dp"
             android:background="@drawable/button"
             android:backgroundTint="@color/yellow"
+            android:textColor="@color/white"
             android:fontFamily="@font/open_sauce_one_regular"
             />
 
@@ -108,6 +109,19 @@
                 android:shadowRadius="1.5"
                 android:fontFamily="@font/open_sauce_one_light"
                 />
+            <TextView
+                android:id="@+id/signUpLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/mustard"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="1.5"
+                android:text="@string/underlined_register"
+                android:fontFamily="@font/open_sauce_one_light"
+                />
             <!--            <TextView-->
             <!--                android:layout_width="wrap_content"-->
             <!--                android:layout_height="wrap_content"-->
@@ -116,27 +130,27 @@
             <!--                android:fontFamily="sans-serif-light"-->
             <!--                android:textColor="@color/white"-->
             <!--                />-->
-            <Button
-                android:id="@+id/signUpBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign Up"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@android:color/transparent"
-                android:textColor="@color/mustard"
-                android:textSize="18sp"
-                android:paddingVertical="0dp"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginTop="2dp"
-                android:shadowColor="#80000000"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="1.5"
-                android:fontFamily="@font/open_sauce_one_light"
-                />
+<!--            <Button-->
+<!--                android:id="@+id/signUpBtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Sign Up"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:backgroundTint="@android:color/transparent"-->
+<!--                android:textColor="@color/mustard"-->
+<!--                android:textSize="18sp"-->
+<!--                android:paddingVertical="0dp"-->
+<!--                android:minHeight="0dp"-->
+<!--                android:minWidth="0dp"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true"-->
+<!--                android:layout_marginTop="2dp"-->
+<!--                android:shadowColor="#80000000"-->
+<!--                android:shadowDx="2"-->
+<!--                android:shadowDy="2"-->
+<!--                android:shadowRadius="1.5"-->
+<!--                android:fontFamily="@font/open_sauce_one_light"-->
+<!--                />-->
         </LinearLayout>
     </LinearLayout>
 

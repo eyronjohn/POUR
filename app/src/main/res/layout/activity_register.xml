@@ -28,20 +28,20 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="220dp"
                     android:contentDescription="App logo"
-                    android:src="@drawable/temp_logo" />
+                    android:src="@drawable/pourlogo" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/open_sauce_one_extrabold"
-                    android:letterSpacing="0.2"
-                    android:text="POUR"
-                    android:textAlignment="center"
-                    android:textColor="@color/mustard"
-                    android:textSize="50sp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/open_sauce_one_extrabold"-->
+<!--                    android:letterSpacing="0.2"-->
+<!--                    android:text="POUR"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/mustard"-->
+<!--                    android:textSize="50sp"-->
+<!--                    android:textStyle="bold" />-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -176,7 +176,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edit_text_bg"
                 android:fontFamily="@font/open_sauce_one_regular"
-                android:hint="Enter your fist name"
+                android:hint="Enter your email"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textColor="@color/darker_mustard"
@@ -268,6 +268,7 @@
                 android:fontFamily="@font/open_sauce_one_regular"
                 android:padding="10dp"
                 android:text="REGISTER"
+                android:textColor="@color/white"
                 android:background="@drawable/button"
                 android:textSize="21dp" />
 
@@ -290,27 +291,41 @@
                     android:textColor="@color/mustard"
                     android:textSize="18sp" />
 
-                <Button
-                    android:id="@+id/signInBtn"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/signInLink"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="64dp"
-                    android:background="@android:color/transparent"
-                    android:backgroundTint="@android:color/transparent"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:fontFamily="@font/open_sauce_one_light"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:paddingVertical="0dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/mustard"
                     android:shadowColor="#80000000"
                     android:shadowDx="2"
                     android:shadowDy="2"
                     android:shadowRadius="1.5"
-                    android:text="Sign In"
-                    android:textColor="@color/mustard"
-                    android:textSize="18sp" />
+                    android:text="@string/underlined_login"
+                    android:fontFamily="@font/open_sauce_one_light"
+                    android:layout_marginBottom="64dp"
+                    />
+<!--                <Button-->
+<!--                    android:id="@+id/signInBtn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="2dp"-->
+<!--                    android:layout_marginBottom="64dp"-->
+<!--                    android:background="@android:color/transparent"-->
+<!--                    android:backgroundTint="@android:color/transparent"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/open_sauce_one_light"-->
+<!--                    android:minWidth="0dp"-->
+<!--                    android:minHeight="0dp"-->
+<!--                    android:paddingVertical="0dp"-->
+<!--                    android:shadowColor="#80000000"-->
+<!--                    android:shadowDx="2"-->
+<!--                    android:shadowDy="2"-->
+<!--                    android:shadowRadius="1.5"-->
+<!--                    android:text="Sign In"-->
+<!--                    android:textColor="@color/mustard"-->
+<!--                    android:textSize="18sp" />-->
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

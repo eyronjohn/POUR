@@ -69,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         pickDateButton = findViewById(R.id.pickDateButton);
         signInLink = findViewById(R.id.signInLink);
 
+        spinnerItems.add("Select a gender");
         spinnerItems.add("Male");
         spinnerItems.add("Female");
         spinnerItems.add("Non-binary");
@@ -113,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordET.getText().toString().trim();
         String confirmPass = confirmPassET.getText().toString().trim();
 
-        /*
+
         // Empty Fields Checker
         if (fName.isEmpty()) {
             Toast.makeText(c, "First name is required.", Toast.LENGTH_SHORT).show();
@@ -211,7 +212,11 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(c, "A user with that username already exists.", Toast.LENGTH_SHORT).show();
             return;
         }
-         */
+
+        if (selectedGender.equals("Select a gender")) {
+            Toast.makeText(c, "Please select a gender.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         HashMap<String, Object> userData = new HashMap<>();
         userData.put("firstName", fName);

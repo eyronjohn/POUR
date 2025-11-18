@@ -93,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
         lName = (String) userData.get("lastName");
         gender = (String) userData.get("gender");
         dob = (String) userData.get("dob");
+        bio = (String) userData.get("bio");
 
         Bitmap savedImage = (Bitmap) userData.get("profileImage");
         if (savedImage != null) {
@@ -281,7 +282,7 @@ public class ProfileActivity extends AppCompatActivity {
             userData.put("profileImage", tempProfileImage);
         }
 
-        Toast.makeText(c, "Profile updated successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(c, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
     }
 
     private boolean isValidDOB(String dob) {

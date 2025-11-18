@@ -204,7 +204,8 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_text_bg"
                     android:inputType="text"
-                    android:padding="34dp"
+                    android:paddingLeft="14dp"
+                    android:paddingVertical="24dp"
                     android:textColor="@color/darker_mustard"
                     android:textColorHint="@color/darker_mustard"
                     android:fontFamily="@font/open_sauce_one_regular"/>
